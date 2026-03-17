@@ -2,7 +2,7 @@
 
 import Navbar from "@/components/layout/Navbar";
 import CustomCursor from "@/components/ui/CustomCursor";
-import Scene from "@/components/3d/Scene";
+import dynamic from "next/dynamic";
 
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
@@ -11,18 +11,21 @@ import Projects from "@/components/sections/Projects";
 import Education from "@/components/sections/Education";
 import Contact from "@/components/sections/Contact";
 
+// Dynamic import to prevent Three.js from being rendered server-side (it requires browser APIs)
+const Scene = dynamic(() => import("@/components/3d/Scene"), { ssr: false });
+
 export default function Home() {
   return (
     <main className="relative bg-transparent min-h-screen text-white selection:bg-[var(--primary-purple)] selection:text-white">
       <CustomCursor />
       
-      {/* 3D Background */}
+      {/* 3D Background - only loads on client */}
       <Scene />
       
       {/* Navigation */}
       <Navbar />
 
-      {/* Content wrapper - mix-blend-mode ensures text stands out over 3D particles */}
+      {/* Content wrapper */}
       <div className="relative z-10 w-full overflow-x-hidden">
         <Hero />
         <About />
@@ -41,3 +44,4 @@ export default function Home() {
     </main>
   );
 }
+
