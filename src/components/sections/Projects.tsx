@@ -27,6 +27,13 @@ const projects = [
     github: "#",
     live: "#",
   },
+  {
+    title: "Rajnish Kushwaha Youth Leadership",
+    desc: "Dedicated to realizing the dreams of the youth of Kalikamai Gaupalika, tirelessly working for social transformation through RMoksha NGO.View Campaigns Become a Volunteer",
+    tags: ["Youth Leader", "Social Worker", "Voice of Change"],
+    github: "#",
+    live: "#",
+  },
 ];
 
 function ProjectCard({ project, index }: { project: any; index: number }) {
