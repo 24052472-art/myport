@@ -2,7 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "export",
-  basePath: "/aalokkushwaha",
+  images: {
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;
